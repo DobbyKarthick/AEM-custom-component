@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="Spin Wheel"
+    jcr:description="Interactive gamification spin wheel component with customizable segments and prizes"
+    componentGroup="Wheel Spin - Content"
+    sling:resourceSuperType="core/wcm/components/component/v1/component"/> 

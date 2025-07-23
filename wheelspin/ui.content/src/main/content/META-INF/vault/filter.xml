@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/wheelspin" mode="merge"/>
+    <filter root="/content/wheelspin" mode="merge"/>
+    <filter root="/content/dam/wheelspin" mode="merge">
+        <exclude pattern="/content/dam/wheelspin(/.*)?"/>
+        <include pattern="/content/dam/wheelspin/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/wheelspin/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/wheelspin" mode="merge"/>
+</workspaceFilter>

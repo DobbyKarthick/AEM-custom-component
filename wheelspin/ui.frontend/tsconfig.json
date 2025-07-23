@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "lib": ["es2015", "dom"],
+        "module": "es6",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/main/webpack/*"]
+        },
+        "removeComments": true,
+        "allowJs": false,
+        "jsx": "react-jsx",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "typeRoots": [
+            "./src/types"
+        ],
+        "preserveConstEnums": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true
+    },
+    "include": [
+        "./src/main/webpack/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

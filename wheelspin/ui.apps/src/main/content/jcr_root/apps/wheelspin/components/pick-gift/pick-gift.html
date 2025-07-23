@@ -1,0 +1,69 @@
+<!--
+  Pick-a-Gift Popup Component
+  Interactive gift selection game with shadcn/ui styling
+-->
+
+<!-- Include client library -->
+<sly data-sly-use.clientlib="/libs/core/wcm/components/commons/v1/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='wheelspin.site'}" />
+
+<!--/* DRAFT */-->
+<sly data-sly-use.model="com.wheel.spin.core.models.PickAGiftModel"
+  data-sly-test.hasContent="${model.title || model.prizes && model.prizes.size > 0}" data-sly-unwrap>
+
+  <div class="pick-gift-component" data-title="${model.title || 'Pick a gift!'}"
+    data-subtitle="${model.subtitle || 'Pick one of the gift boxes to reveal your prize!'}"
+    data-button-text="${model.buttonText || 'PICK A GIFT'}" data-variant="${model.variant || 'card'}"
+    data-size="${model.size || 'lg'}" data-prizes="${model.prizes @ context='json'}">
+
+    <!-- Loading state -->
+    <div class="pick-gift-loading" style="text-align: center; padding: 2rem;">
+      <div style="font-size: 1.5rem; margin-bottom: 1rem;">Loading Pick-a-Gift...</div>
+      <div style="color: #666;">Please wait while the component initializes</div>
+    </div>
+
+    <!-- React container -->
+    <div class="pick-gift-container"></div>
+
+    <!-- Fallback content -->
+    <noscript>
+      <div style="text-align: center; padding: 2rem; border: 2px dashed #ccc; border-radius: 8px;">
+        <h3>${model.title || 'Pick a gift!'}</h3>
+        <p>JavaScript is required to use this interactive component.</p>
+        <p>Please enable JavaScript in your browser to continue.</p>
+      </div>
+    </noscript>
+
+  </div>
+
+  <!-- Pass configuration to frontend via data attributes -->
+  <script>
+    // Extract configuration from data attributes
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.querySelector('.pick-gift-component');
+      if (container) {
+        window.pickGiftConfig = {
+          prizes: [],
+          title: container.getAttribute('data-title') || 'Pick a gift!',
+          subtitle: container.getAttribute('data-subtitle') || 'Pick one of the gift boxes to reveal your prize!',
+          buttonText: container.getAttribute('data-button-text') || 'PICK A GIFT',
+          variant: container.getAttribute('data-variant') || 'card',
+          size: container.getAttribute('data-size') || 'lg'
+        };
+
+        console.log('Pick-a-Gift config loaded:', window.pickGiftConfig);
+      }
+    });
+  </script>
+
+</sly>
+
+<!--/* DRAFT */-->
+<sly data-sly-test="${!hasContent}">
+  <div
+    style="text-align: center; padding: 2rem; border: 2px dashed #ccc; border-radius: 8px; background-color: #f9f9f9;">
+    <h3 style="color: #666; margin-bottom: 1rem;">Pick-a-Gift Component</h3>
+    <p style="color: #888;">Configure this component to display content.</p>
+    <p style="color: #888; font-size: 0.9rem;">Add a title or prizes to get started.</p>
+  </div>
+</sly>

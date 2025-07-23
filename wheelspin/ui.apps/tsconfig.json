@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "es6"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/lib/*": [
+        "src/main/content/jcr_root/apps/wheelspin/clientlibs/clientlibs-shadcn-button/js/lib/*"
+      ],
+      "@/components/ui/*": [
+        "src/main/content/jcr_root/apps/wheelspin/clientlibs/clientlibs-shadcn-button/js/components/ui/*"
+      ]
+    }
+  },
+  "include": [
+    "src/main/content/jcr_root/apps/wheelspin/clientlibs/clientlibs-shadcn-button/js/**/*"
+  ]
+}

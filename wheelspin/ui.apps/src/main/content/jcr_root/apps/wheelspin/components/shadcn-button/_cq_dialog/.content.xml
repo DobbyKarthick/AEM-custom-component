@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" 
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0" 
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" 
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" 
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Shadcn Button Configuration"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Button Text"
+                                                fieldDescription="The text to display on the button"
+                                                name="./text"
+                                                value="Click me"
+                                                required="{Boolean}true"/>
+                                            <variant
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Button Variant"
+                                                fieldDescription="The visual style variant of the button"
+                                                name="./variant">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Default"
+                                                        value="default"
+                                                        selected="{Boolean}true"/>
+                                                    <destructive
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Destructive"
+                                                        value="destructive"/>
+                                                    <outline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Outline"
+                                                        value="outline"/>
+                                                    <secondary
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Secondary"
+                                                        value="secondary"/>
+                                                    <ghost
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Ghost"
+                                                        value="ghost"/>
+                                                    <link
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Link"
+                                                        value="link"/>
+                                                </items>
+                                            </variant>
+                                            <size
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Button Size"
+                                                fieldDescription="The size of the button"
+                                                name="./size">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Default"
+                                                        value="default"
+                                                        selected="{Boolean}true"/>
+                                                    <sm
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Small"
+                                                        value="sm"/>
+                                                    <lg
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Large"
+                                                        value="lg"/>
+                                                    <icon
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Icon"
+                                                        value="icon"/>
+                                                </items>
+                                            </size>
+                                            <linkUrl
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Link URL"
+                                                fieldDescription="URL to navigate to when button is clicked (for link variant or when button should act as a link)"
+                                                name="./linkUrl"
+                                                rootPath="/content"/>
+                                            <openInNewTab
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldLabel="Open in New Tab"
+                                                fieldDescription="Open the link in a new tab/window"
+                                                name="./openInNewTab"
+                                                text="Open link in new tab"
+                                                value="{Boolean}true"/>
+                                            <cssClasses
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="CSS Classes"
+                                                fieldDescription="Additional CSS classes to apply to the button"
+                                                name="./cssClasses"/>
+                                            <disabled
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldLabel="Disabled"
+                                                fieldDescription="Disable the button"
+                                                name="./disabled"
+                                                text="Disable button"
+                                                value="{Boolean}true"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                    <accessibility
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Accessibility"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <ariaLabel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="ARIA Label"
+                                                fieldDescription="Accessible label for screen readers"
+                                                name="./ariaLabel"/>
+                                            <ariaDescribedBy
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="ARIA Described By"
+                                                fieldDescription="ID of element that describes this button"
+                                                name="./ariaDescribedBy"/>
+                                            <role
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Role"
+                                                fieldDescription="ARIA role attribute"
+                                                name="./role"
+                                                value="button"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </accessibility>
+                    <loading
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Loading"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <showSpinner
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldLabel="Show Spinner"
+                                                fieldDescription="Show a loading spinner when the button is clicked"
+                                                name="./showSpinner"
+                                                text="Show loading spinner"
+                                                value="{Boolean}true"/>
+                                            <spinnerDuration
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Spinner Duration (ms)"
+                                                fieldDescription="How long to show the spinner in milliseconds"
+                                                name="./spinnerDuration"
+                                                value="2000"
+                                                min="100"
+                                                max="10000"
+                                                step="100"/>
+                                            <loadingText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Loading Text"
+                                                fieldDescription="Text to display while loading"
+                                                name="./loadingText"
+                                                value="Loading..."/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </loading>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root> 

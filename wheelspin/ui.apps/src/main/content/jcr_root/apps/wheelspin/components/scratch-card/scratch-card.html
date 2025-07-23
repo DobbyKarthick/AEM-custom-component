@@ -1,0 +1,76 @@
+<!--
+  Shadcn Scratch Card Component
+  Modern shadcn/ui scratch-off game with customizable prizes
+-->
+
+<!-- Include client library -->
+<sly data-sly-use.clientlib="/libs/core/wcm/components/commons/v1/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='wheelspin.site'}" />
+
+<!--/* DRAFT */-->
+<sly data-sly-use.model="com.wheel.spin.core.models.ScratchCardModel"
+  data-sly-test.hasContent="${model.title || model.prizes && model.prizes.size > 0}" data-sly-unwrap>
+
+  <div class="scratch-card-component" data-title="${model.title || 'Scratch to Win!'}"
+    data-instructions="${model.instructions || 'Scratch the surface to reveal your prize!'}"
+    data-card-width="${model.cardWidth || 300}" data-card-height="${model.cardHeight || 200}"
+    data-brush-radius="${model.brushRadius || 20}" data-scratch-color="${model.scratchColor || '#c0c0c0'}"
+    data-scratch-pattern="${model.scratchPattern || 'Scratch Here!'}"
+    data-reveal-threshold="${model.revealThreshold || 60}"
+    data-reset-button-text="${model.resetButtonText || 'Try Again'}" data-prizes="${model.prizes @ context='json'}">
+
+    <!-- Loading state -->
+    <div class="scratch-card-loading" style="text-align: center; padding: 2rem;">
+      <div style="font-size: 1.5rem; margin-bottom: 1rem;">Loading Scratch Card...</div>
+      <div style="color: #666;">Please wait while the component initializes</div>
+    </div>
+
+    <!-- React container -->
+    <div class="scratch-card-container"></div>
+
+    <!-- Fallback content -->
+    <noscript>
+      <div style="text-align: center; padding: 2rem; border: 2px dashed #ccc; border-radius: 8px;">
+        <h3>${model.title || 'Scratch to Win!'}</h3>
+        <p>JavaScript is required to use this interactive component.</p>
+        <p>Please enable JavaScript in your browser to continue.</p>
+      </div>
+    </noscript>
+
+  </div>
+
+  <!-- Pass configuration to frontend via data attributes -->
+  <script>
+    // Extract configuration from data attributes
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.querySelector('.scratch-card-component');
+      if (container) {
+        window.scratchCardConfig = {
+          prizes: [],
+          title: container.getAttribute('data-title') || 'Scratch to Win!',
+          instructions: container.getAttribute('data-instructions') || 'Scratch the surface to reveal your prize!',
+          cardWidth: parseInt(container.getAttribute('data-card-width')) || 300,
+          cardHeight: parseInt(container.getAttribute('data-card-height')) || 200,
+          brushRadius: parseInt(container.getAttribute('data-brush-radius')) || 20,
+          scratchColor: container.getAttribute('data-scratch-color') || '#c0c0c0',
+          scratchPattern: container.getAttribute('data-scratch-pattern') || 'Scratch Here!',
+          revealThreshold: parseInt(container.getAttribute('data-reveal-threshold')) || 60,
+          resetButtonText: container.getAttribute('data-reset-button-text') || 'Try Again'
+        };
+
+        console.log('Scratch Card config loaded:', window.scratchCardConfig);
+      }
+    });
+  </script>
+
+</sly>
+
+<!--/* DRAFT */-->
+<sly data-sly-test="${!hasContent}">
+  <div
+    style="text-align: center; padding: 2rem; border: 2px dashed #ccc; border-radius: 8px; background-color: #f9f9f9;">
+    <h3 style="color: #666; margin-bottom: 1rem;">Scratch Card Component</h3>
+    <p style="color: #888;">Configure this component to display content.</p>
+    <p style="color: #888; font-size: 0.9rem;">Add a title or prizes to get started.</p>
+  </div>
+</sly>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" 
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0" 
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" 
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" 
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Shadcn Spin Wheel Configuration"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    
+                    <!-- General Settings Tab -->
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Title"
+                                                name="./title"
+                                                value="Spin the Wheel!"
+                                                fieldDescription="The title displayed above the wheel"/>
+                                            
+                                            <buttonText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Button Text"
+                                                name="./buttonText"
+                                                value="SPIN"
+                                                fieldDescription="Text displayed on the spin button"/>
+                                            
+                                            <spinningText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Spinning Text"
+                                                name="./spinningText"
+                                                value="Spinning..."
+                                                fieldDescription="Text displayed while the wheel is spinning"/>
+                                            
+                                            <wheelSize
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Wheel Size"
+                                                name="./wheelSize"
+                                                value="500"
+                                                min="300"
+                                                max="800"
+                                                step="50"
+                                                fieldDescription="Size of the wheel in pixels"/>
+                                            
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </general>
+                    
+                    <!-- Shadcn Styling Tab -->
+                    <styling
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Styling"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            
+                                            <variant
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Variant"
+                                                name="./variant"
+                                                value="card"
+                                                fieldDescription="Visual style variant for the component">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Default"
+                                                        value="default"/>
+                                                    <card
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Card"
+                                                        value="card"/>
+                                                    <minimal
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Minimal"
+                                                        value="minimal"/>
+                                                </items>
+                                            </variant>
+                                            
+                                            <size
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Size"
+                                                name="./size"
+                                                value="lg"
+                                                fieldDescription="Size variant for the component container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <sm
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Small"
+                                                        value="sm"/>
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Default"
+                                                        value="default"/>
+                                                    <lg
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Large"
+                                                        value="lg"/>
+                                                    <xl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Extra Large"
+                                                        value="xl"/>
+                                                </items>
+                                            </size>
+                                            
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </styling>
+                    
+
+                    
+                    <!-- Animation Settings Tab -->
+                    <animation
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Animation"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            
+                                            <animationDuration
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Animation Duration (ms)"
+                                                name="./animationDuration"
+                                                value="4000"
+                                                min="1000"
+                                                max="10000"
+                                                step="500"
+                                                fieldDescription="Duration of the spinning animation in milliseconds"/>
+                                            
+                                            <minRevolutions
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Minimum Revolutions"
+                                                name="./minRevolutions"
+                                                value="5"
+                                                min="2"
+                                                max="15"
+                                                step="1"
+                                                fieldDescription="Minimum number of full rotations before stopping"/>
+                                            
+                                            <maxRevolutions
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Maximum Revolutions"
+                                                name="./maxRevolutions"
+                                                value="8"
+                                                min="3"
+                                                max="20"
+                                                step="1"
+                                                fieldDescription="Maximum number of full rotations before stopping"/>
+                                            
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </animation>
+                    
+                    <!-- Segments Tab -->
+                    <segments
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Segments"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            
+                                            <segmentsDescription
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Segments Configuration"
+                                                name="./segmentsDescription"
+                                                value="Configure wheel segments in JSON format"
+                                                disabled="{Boolean}true"
+                                                fieldDescription="Each segment should have 'text' and 'color' properties"/>
+                                            
+                                            <segments
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldLabel="Segments"
+                                                fieldDescription="Add segments for the spin wheel"
+                                                composite="{Boolean}true">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    maximized="{Boolean}true">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <text
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Segment Text"
+                                                            fieldDescription="Text displayed on the segment"
+                                                            name="./text"/>
+                                                        <color
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Segment Color"
+                                                            fieldDescription="Color of the segment (e.g., #FFC300)"
+                                                            name="./color"/>
+                                                    </items>
+                                                    <granite:data jcr:primaryType="nt:unstructured"
+                                                                  cq-msm-lockable="segments"/>
+                                                </field>
+                                            </segments>
+                                            
+                                            <segmentsExample
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldLabel="Example Format"
+                                                name="./segmentsExample"
+                                                value='[&#10;  {"text": "10% Off", "color": "#FFC300"},&#10;  {"text": "Free Shipping", "color": "#FF5733"},&#10;  {"text": "Buy One Get One", "color": "#C70039"},&#10;  {"text": "20% Off", "color": "#900C3F"},&#10;  {"text": "No Luck", "color": "#581845"},&#10;  {"text": "Gift Card", "color": "#2E86C1"}&#10;]'
+                                                rows="8"
+                                                disabled="{Boolean}true"
+                                                fieldDescription="Example of proper JSON format for segments"/>
+                                            
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </segments>
+                    
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root> 

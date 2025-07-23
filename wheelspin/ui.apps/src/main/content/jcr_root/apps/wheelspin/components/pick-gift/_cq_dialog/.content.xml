@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Pick-a-Gift Configuration"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General Settings"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Title"
+                                                fieldDescription="Main title text for the gift popup"
+                                                name="./title"
+                                                value="Pick a gift for a chance to win a prize for your next order!"/>
+                                            <prizes
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldDescription="Add multiple prizes for the pick-a-gift game."
+                                                fieldLabel="Prizes"
+                                                composite="{Boolean}true">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    maximized="{Boolean}true">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <prizeText
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Prize Text"
+                                                            name="./text"/>
+                                                        <prizeValue
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Prize Value"
+                                                            name="./value"/>
+                                                        <prizeColor
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Prize Color (e.g., #FF0000)"
+                                                            name="./color"/>
+                                                        <prizeIcon
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Prize Icon (Emoji)"
+                                                            name="./icon"/>
+                                                    </items>
+                                                </field>
+                                            </prizes>
+                                            <autoOpen
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldLabel="Auto Open"
+                                                fieldDescription="Automatically open the popup when page loads"
+                                                name="./autoOpen"
+                                                text="Open popup automatically"
+                                                value="true"/>
+                                            <showCloseButton
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldLabel="Show Close Button"
+                                                fieldDescription="Show X button to close popup"
+                                                name="./showCloseButton"
+                                                text="Show close button"
+                                                value="true"
+                                                checked="true"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </general>
+                    <styling
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Styling"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <variant
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Theme Variant"
+                                                fieldDescription="Visual theme variant"
+                                                name="./variant">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Default Purple"
+                                                        value="default"/>
+                                                    <christmas
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Christmas Theme"
+                                                        value="christmas"/>
+                                                    <birthday
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Birthday Theme"
+                                                        value="birthday"/>
+                                                    <minimal
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Minimal"
+                                                        value="minimal"/>
+                                                </items>
+                                            </variant>
+                                            <size
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Size"
+                                                fieldDescription="Popup size"
+                                                name="./size">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <sm
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Small"
+                                                        value="sm"/>
+                                                    <default
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Default"
+                                                        value="default"/>
+                                                    <lg
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Large"
+                                                        value="lg"/>
+                                                    <xl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Extra Large"
+                                                        value="xl"/>
+                                                </items>
+                                            </size>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </styling>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root> 

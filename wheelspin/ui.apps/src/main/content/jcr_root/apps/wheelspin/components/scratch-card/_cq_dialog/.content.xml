@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Scratch Card Configuration"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General Settings"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Component Title"
+                                                fieldDescription="Title displayed in the component (optional)"
+                                                name="./title"
+                                                value="Scratch Card"/>
+                                            <instructions
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Instructions"
+                                                fieldDescription="Instructions for the user to scratch"
+                                                name="./instructions"
+                                                value="Scratch the surface to reveal your prize!"/>
+                                            <cardWidth
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Card Width"
+                                                fieldDescription="Width of the scratch card in pixels"
+                                                name="./cardWidth"
+                                                value="300"
+                                                min="100"/>
+                                            <cardHeight
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Card Height"
+                                                fieldDescription="Height of the scratch card in pixels"
+                                                name="./cardHeight"
+                                                value="200"
+                                                min="100"/>
+                                            <brushRadius
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Brush Radius"
+                                                fieldDescription="Size of the scratch brush"
+                                                name="./brushRadius"
+                                                value="20"
+                                                min="1"
+                                                max="50"/>
+                                            <scratchColor
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Scratch Color"
+                                                fieldDescription="Color of the scratchable overlay (e.g., #c0c0c0)"
+                                                name="./scratchColor"
+                                                value="#c0c0c0"/>
+                                            <scratchPattern
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Scratch Pattern Text"
+                                                fieldDescription="Text displayed on the scratchable surface"
+                                                name="./scratchPattern"
+                                                value="Scratch to reveal your prize!"/>
+                                            <revealThreshold
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Reveal Threshold (%)"
+                                                fieldDescription="Percentage of card to scratch before revealing prize"
+                                                name="./revealThreshold"
+                                                value="60"
+                                                min="1"
+                                                max="100"/>
+                                            <resetButtonText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Reset Button Text"
+                                                fieldDescription="Text for the 'Play Again' button"
+                                                name="./resetButtonText"
+                                                value="Play Again"/>
+                                            <prizes
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldLabel="Prizes"
+                                                fieldDescription="Configure the possible prizes for the scratch card"
+                                                composite="{Boolean}true">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    maximized="{Boolean}true">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <text
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Prize Text"
+                                                            fieldDescription="Main text for the prize (e.g., '10% Off')"
+                                                            name="./text"/>
+                                                        <value
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Prize Value"
+                                                            fieldDescription="Additional detail for the prize (e.g., 'Use Code: GIFT10')"
+                                                            name="./value"/>
+                                                        <color
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Prize Color"
+                                                            fieldDescription="Background color for the prize display (e.g., #FFC300)"
+                                                            name="./color"/>
+                                                        <icon
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Prize Icon"
+                                                            fieldDescription="Emoji or short text icon for the prize (e.g., 🎁)"
+                                                            name="./icon"/>
+                                                    </items>
+                                                    <granite:data jcr:primaryType="nt:unstructured"
+                                                                  cq-msm-lockable="prizes"/>
+                                                </field>
+                                            </prizes>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </general>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root> 

@@ -1,0 +1,50 @@
+<!--
+  Shadcn Button Component
+  Modern React-based button component with shadcn/ui styling
+-->
+
+<!-- Read component properties -->
+<sly data-sly-set.text="${properties.text || 'Click me'}" />
+<sly data-sly-set.variant="${properties.variant || 'default'}" />
+<sly data-sly-set.size="${properties.size || 'default'}" />
+<sly data-sly-set.linkUrl="${properties.linkUrl}" />
+<sly data-sly-set.openInNewTab="${properties.openInNewTab}" />
+<sly data-sly-set.cssClasses="${properties.cssClasses}" />
+<sly data-sly-set.disabled="${properties.disabled}" />
+<sly data-sly-set.ariaLabel="${properties.ariaLabel}" />
+<sly data-sly-set.ariaDescribedBy="${properties.ariaDescribedBy}" />
+<sly data-sly-set.role="${properties.role || 'button'}" />
+
+<!-- New spinner-related properties -->
+<sly data-sly-set.showSpinner="${properties.showSpinner}" />
+<sly data-sly-set.spinnerDuration="${properties.spinnerDuration || '2000'}" />
+<sly data-sly-set.loadingText="${properties.loadingText || 'Loading...'}" />
+
+<!-- Main component container with all necessary data attributes -->
+<div class="shadcn-button-component${cssClasses ? ' ' : ''}${cssClasses || ''}" data-component-name="shadcn-button"
+  data-testid="shadcn-button" data-text="${text}" data-variant="${variant}" data-size="${size}"
+  data-link-url="${linkUrl}" data-open-in-new-tab="${openInNewTab}" data-disabled="${disabled}"
+  data-aria-label="${ariaLabel}" data-aria-described-by="${ariaDescribedBy}" data-role="${role}"
+  data-css-classes="${cssClasses}" data-show-spinner="${showSpinner}" data-spinner-duration="${spinnerDuration}"
+  data-loading-text="${loadingText}" role="region" aria-label="Shadcn Button Component">
+
+  <!-- Fallback content for when JavaScript fails to load -->
+  <noscript>
+    <div class="fallback-message">
+      <p>This component requires JavaScript to function properly.</p>
+      <button type="button" class="fallback-button" data-sly-attribute.disabled="${disabled}"
+        data-sly-attribute.aria-label="${ariaLabel}" data-sly-attribute.aria-describedby="${ariaDescribedBy}"
+        role="${role}">
+        ${text}
+      </button>
+    </div>
+  </noscript>
+
+  <!-- Loading state -->
+  <div class="loading-placeholder" style="display: block;">
+    <span>Loading button...</span>
+  </div>
+</div>
+
+<!-- Include the React bundle directly -->
+<script src="/apps/wheelspin/clientlibs/clientlibs-shadcn-button/js/shadcn-button-bundle.js"></script>

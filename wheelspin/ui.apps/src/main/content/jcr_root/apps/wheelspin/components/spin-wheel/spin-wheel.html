@@ -1,0 +1,84 @@
+<!--
+  Shadcn Spin Wheel Component
+  Modern shadcn/ui spin wheel with variants and customizable segments
+-->
+
+<!-- Include client library -->
+<sly data-sly-use.clientlib="/libs/core/wcm/components/commons/v1/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='wheelspin.site'}" />
+
+<!--/* DRAFT */-->
+<sly data-sly-use.model="com.wheel.spin.core.models.SpinWheelModel"
+  data-sly-test.hasContent="${model.title || model.segments && model.segments.size > 0}" data-sly-unwrap>
+
+  <div class="spin-wheel-component" data-wheel-size="${model.wheelSize || 500}"
+    data-animation-duration="${model.animationDuration || 4000}" data-min-revolutions="${model.minRevolutions || 5}"
+    data-max-revolutions="${model.maxRevolutions || 8}" data-title="${model.title || 'Spin the Wheel!'}"
+    data-button-text="${model.buttonText || 'SPIN'}" data-spinning-text="${model.spinningText || 'Spinning...'}"
+    data-variant="${model.variant || 'card'}" data-size="${model.size || 'lg'}"
+    data-segments="${model.segments @ context='json'}">
+
+    <!-- Loading state -->
+    <div class="spin-wheel-loading" style="text-align: center; padding: 2rem;">
+      <div style="font-size: 1.5rem; margin-bottom: 1rem;">Loading Spin Wheel...</div>
+      <div style="color: #666;">Please wait while the component initializes</div>
+    </div>
+
+    <!-- React container -->
+    <div class="spin-wheel-container"></div>
+
+    <!-- Fallback content -->
+    <noscript>
+      <div style="text-align: center; padding: 2rem; border: 2px dashed #ccc; border-radius: 8px;">
+        <h3>${model.title || 'Spin the Wheel!'}</h3>
+        <p>JavaScript is required to use this interactive component.</p>
+        <p>Please enable JavaScript in your browser to continue.</p>
+      </div>
+    </noscript>
+
+  </div>
+
+  <!-- Pass configuration to frontend via data attributes -->
+  <script>
+    // Extract configuration from data attributes
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.querySelector('.spin-wheel-component');
+      if (container) {
+        window.wheelspinConfig = {
+          segments: [],
+          title: container.getAttribute('data-title') || 'Spin the Wheel!',
+          buttonText: container.getAttribute('data-button-text') || 'SPIN',
+          spinningText: container.getAttribute('data-spinning-text') || 'Spinning...',
+          wheelSize: parseInt(container.getAttribute('data-wheel-size')) || 500,
+          animationDuration: parseInt(container.getAttribute('data-animation-duration')) || 4000,
+          minRevolutions: parseInt(container.getAttribute('data-min-revolutions')) || 5,
+          maxRevolutions: parseInt(container.getAttribute('data-max-revolutions')) || 8,
+          variant: container.getAttribute('data-variant') || 'card',
+          size: container.getAttribute('data-size') || 'lg'
+        };
+
+        console.log('Wheelspin config loaded:', window.wheelspinConfig);
+
+        // Test: Show that the component was found
+        console.log('Spin Wheel component found and ready for initialization');
+
+        // Test: Show a simple message in the container
+        const container = document.querySelector('.spin-wheel-container');
+        if (container) {
+          container.innerHTML = '<div style="text-align: center; padding: 1rem; background: #f0f0f0; border-radius: 4px;">Component found! React will initialize here.</div>';
+        }
+      }
+    });
+  </script>
+
+</sly>
+
+<!--/* DRAFT */-->
+<sly data-sly-test="${!hasContent}">
+  <div
+    style="text-align: center; padding: 2rem; border: 2px dashed #ccc; border-radius: 8px; background-color: #f9f9f9;">
+    <h3 style="color: #666; margin-bottom: 1rem;">Spin Wheel Component</h3>
+    <p style="color: #888;">Configure this component to display content.</p>
+    <p style="color: #888; font-size: 0.9rem;">Add a title or segments to get started.</p>
+  </div>
+</sly>
