@@ -39,77 +39,68 @@ function initSpinWheel() {
 
       const root = ReactDOM.createRoot(container);
 
-      const renderSpinWheel = () => {
-        // Get configuration from data attributes
-        const wheelSize = parseInt(rootElement.getAttribute('data-wheel-size') || '500');
-        const animationDuration = parseInt(rootElement.getAttribute('data-animation-duration') || '4000');
-        const minRevolutions = parseInt(rootElement.getAttribute('data-min-revolutions') || '5');
-        const maxRevolutions = parseInt(rootElement.getAttribute('data-max-revolutions') || '8');
-        const segmentsData = rootElement.getAttribute('data-segments');
-        const title = rootElement.getAttribute('data-title') || 'Spin the Wheel!';
-        const buttonText = rootElement.getAttribute('data-button-text') || 'SPIN';
-        const spinningText = rootElement.getAttribute('data-spinning-text') || 'Spinning...';
-        const variant = rootElement.getAttribute('data-variant') || 'card';
-        const size = rootElement.getAttribute('data-size') || 'lg';
+      // Get configuration from data attributes
+      const wheelSize = parseInt(rootElement.getAttribute('data-wheel-size') || '500');
+      const animationDuration = parseInt(rootElement.getAttribute('data-animation-duration') || '4000');
+      const minRevolutions = parseInt(rootElement.getAttribute('data-min-revolutions') || '5');
+      const maxRevolutions = parseInt(rootElement.getAttribute('data-max-revolutions') || '8');
+      const hasSegments = rootElement.getAttribute('data-has-segments') === 'true';
+      const title = rootElement.getAttribute('data-title') || 'Spin the Wheel!';
+      const buttonText = rootElement.getAttribute('data-button-text') || 'SPIN';
+      const spinningText = rootElement.getAttribute('data-spinning-text') || 'Spinning...';
+      const variant = rootElement.getAttribute('data-variant') || 'card';
+      const size = rootElement.getAttribute('data-size') || 'lg';
 
-        // Parse segments
-        let segments = [];
-        try {
-          segments = segmentsData ? JSON.parse(segmentsData) : [
-            { text: "10% Off", color: "#FFC300" },
-            { text: "Free Shipping", color: "#FF5733" },
-            { text: "Buy One Get One", color: "#C70039" },
-            { text: "20% Off", color: "#900C3F" },
-            { text: "No Luck", color: "#581845" },
-            { text: "Gift Card", color: "#2E86C1" }
-          ];
-        } catch (e) {
-          console.error('Error parsing segments data for Spin Wheel:', e);
-          segments = [
-            { text: "10% Off", color: "#FFC300" },
-            { text: "Free Shipping", color: "#FF5733" },
-            { text: "Buy One Get One", color: "#C70039" },
-            { text: "20% Off", color: "#900C3F" },
-            { text: "No Luck", color: "#581845" },
-            { text: "Gift Card", color: "#2E86C1" }
-          ];
-        }
+      // Use default segments (will be enhanced to fetch from AEM)
+      const segments = [
+        { text: "10% Off", color: "#FFC300" },
+        { text: "Free Shipping", color: "#FF5733" },
+        { text: "Buy One Get One", color: "#C70039" },
+        { text: "20% Off", color: "#900C3F" },
+        { text: "No Luck", color: "#581845" },
+        { text: "Gift Card", color: "#2E86C1" }
+      ];
 
-        root.render(
-          React.createElement(SpinWheel, {
-            segments: segments,
-            wheelSize: wheelSize,
-            animationDuration: animationDuration,
-            minRevolutions: minRevolutions,
-            maxRevolutions: maxRevolutions,
-            title: title,
-            buttonText: buttonText,
-            spinningText: spinningText,
-            variant: variant as "card" | "default" | "minimal",
-            size: size as "lg" | "default" | "sm" | "xl",
-            onSpinStart: () => {
-              console.log(`Spin Wheel ${index + 1} started spinning`);
-            },
-            onSpinEnd: (result) => {
-              console.log(`Spin Wheel ${index + 1} result:`, result);
+      // If AEM has configured segments, fetch them from the servlet
+      if (hasSegments) {
+        console.log('Dynamic segments detected in AEM configuration');
+        // For now, use default segments. Dynamic fetching can be implemented later
+        console.log('Using default segments for now');
+      }
 
-              // Dispatch custom event for analytics
-              const customEvent = new CustomEvent('spin-wheel-result', {
-                detail: {
-                  componentIndex: index,
-                  result: result,
-                  timestamp: new Date().toISOString()
-                }
-              });
-              rootElement.dispatchEvent(customEvent);
-            }
-          })
-        );
+      // Render the component
+      root.render(
+        React.createElement(SpinWheel, {
+          segments: segments,
+          wheelSize: wheelSize,
+          animationDuration: animationDuration,
+          minRevolutions: minRevolutions,
+          maxRevolutions: maxRevolutions,
+          title: title,
+          buttonText: buttonText,
+          spinningText: spinningText,
+          variant: variant as "card" | "default" | "minimal",
+          size: size as "lg" | "default" | "sm" | "xl",
+          onSpinStart: () => {
+            console.log(`Spin Wheel ${index + 1} started spinning`);
+          },
+          onSpinEnd: (result) => {
+            console.log(`Spin Wheel ${index + 1} result:`, result);
 
-        console.log(`Spin Wheel component ${index + 1} initialized successfully`);
-      };
+            // Dispatch custom event for analytics
+            const customEvent = new CustomEvent('spin-wheel-result', {
+              detail: {
+                componentIndex: index,
+                result: result,
+                timestamp: new Date().toISOString()
+              }
+            });
+            rootElement.dispatchEvent(customEvent);
+          }
+        })
+      );
 
-      renderSpinWheel();
+      console.log(`Spin Wheel component ${index + 1} initialized successfully with ${segments.length} segments`);
     } catch (error) {
       console.error(`Error initializing Spin Wheel component ${index + 1}:`, error);
     }

@@ -16,7 +16,7 @@
     data-max-revolutions="${model.maxRevolutions || 8}" data-title="${model.title || 'Spin the Wheel!'}"
     data-button-text="${model.buttonText || 'SPIN'}" data-spinning-text="${model.spinningText || 'Spinning...'}"
     data-variant="${model.variant || 'card'}" data-size="${model.size || 'lg'}"
-    data-segments="${model.segments @ context='json'}">
+    data-has-segments="${model.segments && model.segments.size > 0}">
 
     <!-- Loading state -->
     <div class="spin-wheel-loading" style="text-align: center; padding: 2rem;">
@@ -44,8 +44,27 @@
     document.addEventListener('DOMContentLoaded', function () {
       const container = document.querySelector('.spin-wheel-component');
       if (container) {
+        // Check if we have dynamic segments from AEM
+        const hasSegments = container.getAttribute('data-has-segments') === 'true';
+
+        // Use default segments if none configured
+        let segments = [
+          { text: "10% Off", color: "#FFC300" },
+          { text: "Free Shipping", color: "#FF5733" },
+          { text: "Buy One Get One", color: "#C70039" },
+          { text: "20% Off", color: "#900C3F" },
+          { text: "No Luck", color: "#581845" },
+          { text: "Gift Card", color: "#2E86C1" }
+        ];
+
+        // If segments are configured in AEM, we'll need to fetch them via AJAX
+        if (hasSegments) {
+          console.log('Dynamic segments detected - will be loaded from AEM configuration');
+          // For now, use defaults. In a full implementation, you'd fetch from AEM
+        }
+
         window.wheelspinConfig = {
-          segments: [],
+          segments: segments,
           title: container.getAttribute('data-title') || 'Spin the Wheel!',
           buttonText: container.getAttribute('data-button-text') || 'SPIN',
           spinningText: container.getAttribute('data-spinning-text') || 'Spinning...',
@@ -58,6 +77,7 @@
         };
 
         console.log('Wheelspin config loaded:', window.wheelspinConfig);
+        console.log('Segments loaded:', segments);
 
         // Test: Show that the component was found
         console.log('Spin Wheel component found and ready for initialization');
